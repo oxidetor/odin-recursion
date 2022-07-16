@@ -1,12 +1,7 @@
 def fibs(n)
-  (0...n).inject([]) do |acc, num|
-    acc << case num
-           in 0..1 => n
-             n
-           else
-             acc[-1] + acc[-2]
-           end
-  end
+  return [0] if n == 1
+
+  (0...n - 2).inject([0, 1]) { |acc, _num| acc << acc[-1] + acc[-2] }
 end
 
 def fibs_rec(n)
